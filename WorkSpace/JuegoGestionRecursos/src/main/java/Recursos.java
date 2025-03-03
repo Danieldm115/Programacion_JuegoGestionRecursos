@@ -1,23 +1,14 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Recursos {
-    private String tipo;
+    private TipoRecursos tipo;
     private int cantidad;
 
-    public Recursos(String tipo, int cantidad) {
+    public Recursos(TipoRecursos tipo, int cantidad) {
         this.tipo = tipo;
         this.cantidad = cantidad;
     }
 
-    public int getCantidad() {
-		return cantidad;
-	}
-    
-    public String getTipo() {
-		return tipo;
-	}
-    
     public void incrementarCantidad(int cantidad) {
         this.cantidad += cantidad;
     }
@@ -34,5 +25,11 @@ public class Recursos {
         return this.cantidad - cantidad >= 0;
     }
 
-    
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public TipoRecursos getTipo() {
+        return tipo;
+    }
 }
