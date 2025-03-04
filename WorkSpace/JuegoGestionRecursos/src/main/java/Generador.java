@@ -1,29 +1,54 @@
-import java.util.ArrayList;
 
 public abstract class Generador {
-    protected int produccion;
-    protected int costeMantenimiento;
-    protected int costeMejora;
-    protected int nivel;
-    protected TipoRecursos recursoGenerados;
+    private int cantidadProducidaPorTurno;
+    private int costeMantenimiento;
+    private int costeMejora;
+    private int nivelGenerador;
 
-    public Generador(int produccion, int costeMantenimiento, int costeMejora, TipoRecursos recursoGenerado) {
-        this.produccion = produccion;
+    public Generador(int cantidadProducidaPorTurno, int costeMantenimiento, int costeMejora) {
+        this.cantidadProducidaPorTurno = cantidadProducidaPorTurno;
         this.costeMantenimiento = costeMantenimiento;
         this.costeMejora = costeMejora;
-        this.nivel = 1;
-        this.recursoGenerados = recursoGenerado;
+        this.nivelGenerador = 1;
     }
 
-    public void mejorarGenerador() {
-        if (nivel < 3) {
-            nivel++;
-            produccion *= 2;
-            costeMantenimiento *= 2;
-            costeMejora *= 2;
-        }
+    public abstract  void mejorarGenerador(Recurso recurso);
+
+    public abstract int generarRecurso(Recurso recursoMantenimiento);
+
+    public abstract void mostrarInformacionDelGenerdador();
+
+    public abstract TipoRecurso getTipoRecurso();
+    
+    public int getCantidadProducidaPorTurno() {
+        return cantidadProducidaPorTurno;
     }
 
-    public abstract void generarRecurso(Recursos recurso);
-    public abstract void mostrarInformacionDelGenerador();
+    public int getCosteMantenimiento() {
+        return costeMantenimiento;
+    }
+
+    public int getCosteMejora() {
+        return costeMejora;
+    }
+
+    public int getNivelGenerador() {
+        return nivelGenerador;
+    }
+    
+    public void setCantidadProducidaPorTurno(int cantidadProducidaPorTurno) {
+        this.cantidadProducidaPorTurno = cantidadProducidaPorTurno;
+    }
+
+    public void setCosteMantenimiento(int costeMantenimiento) {
+        this.costeMantenimiento = costeMantenimiento;
+    }
+
+    public void setCosteMejora(int costeMejora) {
+        this.costeMejora = costeMejora;
+    }
+
+    public void setNivelGenerador(int nivelGenerador) {
+        this.nivelGenerador = nivelGenerador;
+    }
 }
